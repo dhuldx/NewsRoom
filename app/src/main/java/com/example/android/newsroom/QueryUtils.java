@@ -177,11 +177,11 @@ public final class QueryUtils {
                String date = currentNews.getString("webPublicationDate");
 
                 // Extract the value for the key called "url"
-                String url = currentNews.getString("webUrl");
+                String newsUrl = currentNews.getString("webUrl");
 
                 // Create a new {@link News} object with the magnitude, location, time,
                 // and url from the JSON response.
-                News news = new News(section, title,date, url);
+                News news = new News(section, title,date, newsUrl);
 
                 // Add the new {@link News} to the list of newss.
                 newsroom.add(news);

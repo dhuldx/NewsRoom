@@ -11,11 +11,11 @@ public class News {
     private String mUrl;
 
     /**
-     * Constructs a new {@link Book} object.
+     * Constructs a new {@link News} object.
      *
-     * @param authors is the magnitude (size) of the book
-     * @param bookTitle is the city location of the book
-     * @param  categories is the time in milliseconds (from the Epoch) when the
+     * @param section is the magnitude (size) of the book
+     * @param newsTitle is the city location of the book
+     * @param  date is the time in milliseconds (from the Epoch) when the
      *  book happened
      */
     public News(String section, String newsTitle, String date, String previewLink) {

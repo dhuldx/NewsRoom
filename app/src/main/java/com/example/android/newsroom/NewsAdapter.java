@@ -1,51 +1,64 @@
 package com.example.android.newsroom;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
-import com.example.android.newsroom.R;
 
 import java.util.List;
 
 //import com.example.android.newsroom.R;
 
 
-public class NewsAdapter extends ArrayAdapter<News> {
-
-
-    // Resource ID for the background color for this list of words
-
-    private int mColorResourceId;
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> {
+    private Context context;
     private static final String LOCATION_SEPARATOR = "/";
     private static final String LOCATION_SEPARATOR2 = "T";
 
-    /**
-     * Create a new {@link NewsAdapter} object.
-     *
-     * @param context is the current context (i.e. Activity) that the adapter is being created in.
-     * @param newsroom   is the list of {@link newsroom}s to be displayed.
-     */
-    public NewsAdapter(Context context, List<News> newsroom) {
-        super(context, 0, newsroom);
+        private List<News> newsList;
 
+
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+            public TextView newsTitle, locationOffsetView, dateView, timeView;
+
+            public MyViewHolder(View view) {
+                super(view);
+                newsTitle = (TextView) view.findViewById(R.id.title);
+                locationOffsetView = (TextView) view.findViewById(R.id.location_offset);
+                dateView = (TextView) view.findViewById(R.id.date);
+                timeView = (TextView) view.findViewById(R.id.time);
+
+            }
+        }
+
+    public NewsAdapter(List<News> newsList) {
+        this.newsList = newsList;
     }
 
 
-    public View getView(int position, View convertView, ViewGroup parent) {
-        // Check if there is an existing list item view (called convertView) that we can reuse,
-        // otherwise, if convertView is null, then inflate a new list item layout.
-        View listItemView = convertView;
-        if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.list_item, parent, false);
-        }
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.list_item, parent, false);
 
+        return new MyViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(MyViewHolder holder, int position) {
+        News currentNews = newsList.get(position);
+
+    //    holder.genre.setText(movie.getGenre());
+      //  holder.year.setText(movie.getYear());
+
+//    public NewsAdapter(Context context, List<News> newsroom) {
+//        super(context, 0, newsroom);
+//    }
         // Find the earthquake at the given position in the list of earthquakes
-        News currentNews = getItem(position);
+        //News currentNews = getItem(position);
 
 
         String newsID = new String(currentNews.getSectionName());
@@ -64,20 +77,21 @@ public class NewsAdapter extends ArrayAdapter<News> {
         } else {
             // Otherwise, there is no " of " text in the originalLocation string.
             // Hence, set the default location offset to say "Near the".
-            locationOffset = getContext().getString(R.string.near_the);
+            locationOffset =context.getResources().getString(R.string.near_the);
 
         }
 
-        TextView locationOffsetView = (TextView) listItemView.findViewById(R.id.location_offset);
+      //  TextView locationOffsetView = (TextView) listItemView.findViewById(R.id.location_offset);
         // Display the location offset of the current earthquake in that TextView
-        locationOffsetView.setText(locationOffset);
+        holder.locationOffsetView.setText(locationOffset);
+       // locationOffsetView.setText(locationOffset);
 
 
-        String title = new String(currentNews.getTitle());
-        TextView newsTitle = (TextView) listItemView.findViewById(R.id.title);
+       // String title = new String(currentNews.getTitle());
+        // TextView newsTitle = (TextView) listItemView.findViewById(R.id.title);
         // Display the location of the current earthquake in that TextView
-        newsTitle.setText(title);
-
+        //newsTitle.setText(title);
+        holder.newsTitle.setText(currentNews.getTitle());
 
         // Create a new Date object from the time in milliseconds of the earthquake
         String dateObject = new String(currentNews.getDate());
@@ -104,25 +118,29 @@ public class NewsAdapter extends ArrayAdapter<News> {
         } else {
             // Otherwise, there is no " of " text in the originalLocation string.
             // Hence, set the default location offset to say "Near the".
-            publishDate = getContext().getString(R.string.no_date);
+            publishDate = context.getString(R.string.no_date);
             // The primary location will be the full location string "Pacific-Antarctic Ridge".
-            publishTime = getContext().getString(R.string.no_time);
+            publishTime = context.getString(R.string.no_time);
             ;
         }
 
         // Find the TextView with view ID location
-        TextView dateView = (TextView) listItemView.findViewById(R.id.date);
+       // TextView dateView = (TextView) listItemView.findViewById(R.id.date);
         // Display the location of the current earthquake in that TextView
-        dateView.setText(publishDate);
-
+      //  dateView.setText(publishDate);
+        holder.dateView.setText(publishDate);
         // Find the TextView with view ID location offset
-        TextView timeView = (TextView) listItemView.findViewById(R.id.time);
+      //  TextView timeView = (TextView) listItemView.findViewById(R.id.time);
         // Display the location offset of the current earthquake in that TextView
-        timeView.setText(publishTime);
-
+       // timeView.setText(publishTime);
+        holder.timeView.setText(publishTime);
         // Return the list item view that is now showing the appropriate data
-        return listItemView;
-    }
+       // return listItemView;
 
+    }
+    @Override
+    public int getItemCount() {
+        return newsList.size();
+    }
 
 }
