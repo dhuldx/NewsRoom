@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">News Room</string>
+    <string name="near_the">Near the</string>
+    <string name="empty">No News Found </string>
+    <!-- Text to display in the list when there are no earthquakes [CHAR LIMIT=NONE] -->
+    <string name="no_books">No News found.</string>
+    <string name="nothing">Nothing to search</string>
+    <string name="title_activity_search_results">title_activity_search_results</string>
+    <string name="no_internet_connection">No internet connection.</string>
+    <string name="no_date">No Date.</string>
+    <string name="no_time">No Time.</string>
+    <!-- Settings Menu Item [CHAR LIMIT=NONE] -->
+    <string name="settings_menu_item">Settings</string>
+    <!-- Settings Activity Title [CHAR LIMIT=NONE] -->
+    <string name="settings_title">News Settings</string>
+    <!-- Strings For Minimum Magnitude Preference [CHAR LIMIT=30] -->
+
+    <string name="settings_query_label">query</string>
+    <string name="settings_min_magnitude_key" translatable="false">min_magnitude</string>
+    <string name="settings_min_magnitude_default" translatable="false">business</string>
+    <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
+    <string name="settings_order_by_label">Section</string>
+    <string name="settings_order_by_key" translatable="false">Section</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_section_label1_value</string>
+
+    <!-- Label for order-by magnitude option [CHAR LIMIT=20] -->
+    <string name="settings_section_label1">australia-news</string>
+    <string name="settings_section_label1_value" translatable="false">australia-news</string>
+
+    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
+    <string name="settings_section_label2">politics</string>
+    <string name="settings_section_label2_value" translatable="false">politics</string>
+
+    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
+    <string name="settings_section_label3">business</string>
+    <string name="settings_section_label3_value" translatable="false">business</string>
+
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="settings_order_by_labels">
+        <item>@string/settings_section_label1</item>
+        <item>@string/settings_section_label2</item>
+        <item>@string/settings_section_label3</item>
+
+    </string-array>
+
+    <string-array name="settings_order_by_values">
+        <item>@string/settings_section_label1_value</item>
+        <item>@string/settings_section_label2_value</item>
+        <item>@string/settings_section_label3_value</item>
+    </string-array>
+</resources>
